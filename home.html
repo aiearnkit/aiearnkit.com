@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIEarnKit — AI-Powered Income Streams for Regular People</title>
+  <meta name="description" content="Learn how to use free AI tools to build a digital income stream. No experience, no audience, no tech skills required. Get the free starter kit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A0F2C;
+      --navy2: #0D1530;
+      --card: #131B35;
+      --border: #1E2A45;
+      --green: #00FF87;
+      --green-dim: rgba(0,255,135,0.08);
+      --green-border: rgba(0,255,135,0.22);
+      --white: #ffffff;
+      --gray: #8892A4;
+      --body: #C4CAD6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,15,44,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 18px; font-weight: 900; letter-spacing: -0.3px; text-decoration: none; color: var(--white); }
+    .nav-logo span { color: var(--green); }
+    .nav-cta {
+      background: var(--green); color: var(--navy);
+      font-size: 13px; font-weight: 800;
+      padding: 10px 22px; border-radius: 8px;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px; margin: 0 auto;
+      padding: 100px 24px 80px;
+      text-align: center;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      color: var(--green); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 8px 20px; border-radius: 99px; margin-bottom: 36px;
+    }
+    .hero-pill::before { content: '●'; font-size: 8px; }
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 900; line-height: 1.06;
+      letter-spacing: -0.035em; margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero p {
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--body); line-height: 1.65;
+      max-width: 620px; margin: 0 auto 44px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--green); color: var(--navy);
+      font-size: 18px; font-weight: 800;
+      padding: 20px 48px; border-radius: 12px;
+      text-decoration: none; letter-spacing: -0.01em;
+      box-shadow: 0 6px 48px rgba(0,255,135,0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-bottom: 20px;
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 56px rgba(0,255,135,0.4); }
+    .hero-sub {
+      font-size: 13px; color: var(--gray);
+    }
+    .hero-sub span { color: var(--green); font-weight: 600; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .proof-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--gray);
+    }
+    .proof-item strong { color: var(--white); font-weight: 700; }
+    .proof-dot { color: var(--green); font-size: 8px; }
+
+    /* ── SECTION BASE ── */
+    section { max-width: 1080px; margin: 0 auto; padding: 80px 24px; }
+    .section-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--green); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 14px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.025em; text-align: center;
+      margin-bottom: 16px;
+    }
+    .section-title span { color: var(--green); }
+    .section-sub {
+      font-size: 17px; color: var(--body); line-height: 1.6;
+      text-align: center; max-width: 580px; margin: 0 auto 56px;
+    }
+
+    /* ── FEATURES ── */
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 26px;
+    }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; }
+    .feature-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .feature-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .how-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .how-step {
+      display: flex; align-items: flex-start; gap: 28px;
+      padding: 32px 36px; border-bottom: 1px solid var(--border);
+    }
+    .how-step:last-child { border-bottom: none; }
+    .how-num {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: var(--green);
+    }
+    .how-body {}
+    .how-title { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+    .how-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
+    .how-tag {
+      display: inline-block; background: var(--green-dim);
+      border: 1px solid var(--green-border); color: var(--green);
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 99px; margin-top: 8px; letter-spacing: 0.06em;
+    }
+
+    /* ── NO EXCUSES ── */
+    .noexcuse-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .noexcuse-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 22px;
+    }
+    .noexcuse-check { color: var(--green); font-size: 18px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+    .noexcuse-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .noexcuse-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      border-radius: 24px; padding: 72px 40px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, rgba(0,255,135,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .final-cta h2 span { color: var(--green); }
+    .final-cta p { font-size: 17px; color: var(--body); margin-bottom: 40px; }
+    .final-cta-btn {
+      display: inline-block;
+      background: var(--green); color: var(--navy);
+      font-size: 18px; font-weight: 800;
+      padding: 20px 52px; border-radius: 12px;
+      text-decoration: none; letter-spacing: -0.01em;
+      box-shadow: 0 6px 48px rgba(0,255,135,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .final-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 56px rgba(0,255,135,0.45); }
+    .final-cta-note { font-size: 13px; color: var(--gray); margin-top: 16px; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-size: 16px; font-weight: 800; }
+    .footer-logo span { color: var(--green); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--green); }
+    .footer-legal { font-size: 12px; color: var(--gray); }
+    .footer-disclaimer { font-size: 11px; color: var(--gray); max-width: 800px; margin: 0 auto; text-align: center; padding: 0 40px 28px; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .proof-bar { gap: 20px; padding: 16px 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .noexcuse-grid { grid-template-columns: 1fr; }
+      .how-step { padding: 24px 20px; gap: 16px; }
+      footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
+      .final-cta { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">AI<span>Earn</span>Kit</a>
+  <a class="nav-cta" href="https://aiearnkit.systeme.io/free-kit">Get Free Starter Kit →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-pill">AI-Powered Side Hustles · 2025–2026</div>
+  <h1>The people using AI<br>to make money online<br>are <span>already ahead.</span></h1>
+  <p>Learn how to use free AI tools to create digital products and build a second income stream — no experience, no audience, no technical skills required.</p>
+  <a class="hero-cta" href="https://aiearnkit.systeme.io/free-kit">Get the Free AI Income Starter Kit →</a>
+  <div class="hero-sub">100% free · No credit card · Instant download<br><span>Join people already building with AI tools</span></div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-dot">●</span> <strong>$0 to start</strong> — all tools are free</div>
+  <div class="proof-item"><span class="proof-dot">●</span> <strong>No tech skills</strong> needed</div>
+  <div class="proof-item"><span class="proof-dot">●</span> <strong>No audience</strong> required</div>
+  <div class="proof-item"><span class="proof-dot">●</span> Works in <strong>under 2 hours/week</strong></div>
+</div>
+
+<!-- FEATURES -->
+<section>
+  <div class="section-label">What you get</div>
+  <h2 class="section-title">Everything you need to<br><span>start earning with AI</span></h2>
+  <p class="section-sub">The free starter kit gives you a clear, step-by-step path — no fluff, no guessing.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🗺️</div>
+      <div class="feature-title">10-Step Action Checklist</div>
+      <div class="feature-desc">The exact steps to launch your first AI income stream, in the right order. Start today, see results this week.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title">5 Free AI Tools That Pay</div>
+      <div class="feature-desc">The specific free tools people are using right now to create digital products and generate income on autopilot.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <div class="feature-title">The $0→$500 Roadmap</div>
+      <div class="feature-desc">Realistic expectations and a clear path from zero to your first $500/month — without quitting your job or risking savings.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="padding-top:0">
+  <div class="section-label">How it works</div>
+  <h2 class="section-title">From zero to <span>first sale</span><br>in 3 simple steps</h2>
+  <p class="section-sub">No complicated setup. No expensive software. Just free tools and a proven method.</p>
+
+  <div class="how-wrap">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-body">
+        <div class="how-title">Pick your AI income method</div>
+        <div class="how-desc">Choose from 5 proven methods — digital products, AI content, affiliate marketing, faceless video, or AI prompt packs. We help you pick the right one based on your time and goals.</div>
+        <div class="how-tag">Takes 15 minutes</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-body">
+        <div class="how-title">Build your first product with ChatGPT</div>
+        <div class="how-desc">Use our exact prompts to create a digital product in under 2 hours. ChatGPT writes it, Canva designs it, Gumroad sells it. Everything is free to start.</div>
+        <div class="how-tag">Takes under 2 hours</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-body">
+        <div class="how-title">Get traffic and make sales</div>
+        <div class="how-desc">Use TikTok organic and AI-generated content to drive traffic to your product — no paid ads needed to start. The free starter kit shows you exactly how.</div>
+        <div class="how-tag">Ongoing — 2 hours/week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NO EXCUSES -->
+<section style="padding-top:0">
+  <div class="section-label">Zero barriers</div>
+  <h2 class="section-title">Still think it's<br><span>not for you?</span></h2>
+  <p class="section-sub">We've heard every objection. Here's the truth.</p>
+
+  <div class="noexcuse-grid">
+    <div class="noexcuse-item">
+      <div class="noexcuse-check">✓</div>
+      <div>
+        <div class="noexcuse-title">"I'm not technical"</div>
+        <div class="noexcuse-desc">If you can type a message into ChatGPT, you have every skill you need. Zero coding required.</div>
+      </div>
+    </div>
+    <div class="noexcuse-item">
+      <div class="noexcuse-check">✓</div>
+      <div>
+        <div class="noexcuse-title">"I have no audience"</div>
+        <div class="noexcuse-desc">You don't need followers to sell digital products. TikTok organic reaches cold audiences every day.</div>
+      </div>
+    </div>
+    <div class="noexcuse-item">
+      <div class="noexcuse-check">✓</div>
+      <div>
+        <div class="noexcuse-title">"I don't have time"</div>
+        <div class="noexcuse-desc">The system is designed for people with full-time jobs. 2 hours a week is enough to get started.</div>
+      </div>
+    </div>
+    <div class="noexcuse-item">
+      <div class="noexcuse-check">✓</div>
+      <div>
+        <div class="noexcuse-title">"I've tried this before and failed"</div>
+        <div class="noexcuse-desc">Dropshipping and Etsy are crowded. AI-powered digital products are a different game — and it's wide open right now.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-top:0">
+  <div class="final-cta">
+    <h2>Start today.<br><span>It's completely free.</span></h2>
+    <p>Get the AI Income Starter Kit and take your first step in the next 10 minutes.</p>
+    <a class="final-cta-btn" href="https://aiearnkit.systeme.io/free-kit">Download the Free Starter Kit →</a>
+    <div class="final-cta-note">No credit card. No spam. Just the kit.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AI<span>Earn</span>Kit</div>
+  <div class="footer-links">
+    <a href="https://aiearnkit.systeme.io/free-kit">Free Starter Kit</a>
+    <a href="/blueprint">Blueprint ($47)</a>
+    <a href="https://www.tiktok.com/@aiearnkit" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/aiearnkit" target="_blank">Instagram</a>
+    <a href="mailto:hello@aiearnkit.com">Contact</a>
+  </div>
+  <div class="footer-legal">© 2025 AIEarnKit. All rights reserved.</div>
+</footer>
+<div class="footer-disclaimer">
+  Results are not typical. Individual results will vary based on effort, experience, and market conditions. AIEarnKit is an educational platform — we do not guarantee specific income outcomes. This site is not affiliated with TikTok, Meta, OpenAI, or Gumroad.
+</div>
+
+</body>
+</html>
